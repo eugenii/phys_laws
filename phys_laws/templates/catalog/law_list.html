@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+    {% block title %}
+      {{ title }}  
+    {% endblock %} 
+    {% block content %}
+      <div class="container py-5 col-6">
+        <div class="container mt-3">
+          <h2>Законы</h2>
+          <div class="card">
+            <div class="list-group">
+                {% for law in laws %}
+                {% if forloop.first %}
+                  <a href="#" class="list-group-item list-group-item-success">{{ law }}</a>
+                {% elif forloop.last %}
+                  <a href="#" class="list-group-item list-group-item-info">{{ law }}</a>
+                {% else %}
+                  <a href="#" class="list-group-item list-group-item-light">{{ law }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock %}

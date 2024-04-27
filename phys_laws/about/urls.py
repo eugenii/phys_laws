@@ -5,5 +5,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.law_list),
+    path('', views.about),
 ]
