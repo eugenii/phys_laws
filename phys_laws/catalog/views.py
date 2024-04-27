@@ -4,16 +4,11 @@ from django.shortcuts import render
 def law_list(request):
     template_name = 'catalog/law_list.html'
     title = 'список законов'
-    laws = [
-        'Архимеда',
-        '1-й Ньютона',
-        'Ома',
-        'Электромагнитной индукции',
-    ]
     context = {
+        'laws': phys_laws_catalog,
         'title': title,
-        'laws': laws,
     }
+    
     return render(request, template_name, context)
 
 
