@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect('test_db.sqlite')
+con = sqlite3.connect('test_db.sqlite3')
 cur = con.cursor()
 
 query_1 = '''

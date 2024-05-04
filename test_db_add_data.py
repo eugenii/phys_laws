@@ -1,25 +1,25 @@
 import sqlite3
 
-con = sqlite3.connect('test_db.sqlite')
+con = sqlite3.connect('test_db.sqlite3')
 
 cur = con.cursor()
 
 laws = [
     (1, 'Закон Ома для участка цепи',
      'Сила тока в участке цепи прямо пропорциональна ...',
-     1827),
+     1827, 1),
     (2, '1-й закон Ньютона',
      'Существуют такие системы отсчёта, в которых тела ...',
-     1687),
+     1687, 2),
     (3, 'Закон Архимеда',
      'На тело, погружённое в жидкость или газ действует ...',
-     -300),
+     -300, 3),
     (4, 'Закон электромагнитной индукции',
      'ЭДС индукции в замкнутом контуре равна и противоположна ...',
-     1857),
+     1857, 4),
     (5, 'Даление смеси газов',
      'Давление смеси газов равно сумме парциальных ...',
-     1801),
+     1801, 5),
 ]
 authors = [
     (1, 'Георг Ом', 'Германия'),
@@ -34,11 +34,12 @@ sections = [
     (4, 'Общие'),
 ]
 
-cur.executemany('INSERT INTO laws VALUES(?, ?, ?, ?);',
+cur.executemany('INSERT INTO laws VALUES(?, ?, ?, ?, ?);',
                 laws)
-cur.executemany('INSERT INTO authors VALUES(?, ?, ?);',
-                authors)
-cur.executemany('INSERT INTO sections VALUES(?, ?);',
-                sections)
+# cur.executemany('INSERT INTO authors VALUES(?, ?, ?);',
+#                 authors)
+# cur.executemany('INSERT INTO sections VALUES(?, ?);',
+#                 sections)
+
 con.commit()
 con.close()
