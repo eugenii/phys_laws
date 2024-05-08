@@ -7,5 +7,5 @@ app_name = 'catalog'
 
 urlpatterns = [
     path('', views.law_list, name='law_list'),
-    path('/<int:pk>/', views.law_detail, name='law_detail'),
+    path('<int:pk>/', views.law_detail, name='law_detail'),
 ]

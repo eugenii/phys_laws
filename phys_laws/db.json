@@ -1,0 +1,120 @@
+[
+    {
+      "model": "catalog.authors",
+      "pk": 1,
+      "fields": {
+        "author": "Георг Ом"
+      }
+    },
+    {
+        "model": "catalog.authors",
+        "pk": 2,
+        "fields": {
+        "author": "Исаак Ньютон"
+        }
+    },
+    {
+        "model": "catalog.authors",
+        "pk": 3,
+        "fields": {
+          "author": "Архимед"
+        }
+      },
+      {
+          "model": "catalog.authors",
+          "pk": 4,
+          "fields": {
+          "author": "Майкл Фарадей"
+          }
+      },
+      {
+        "model": "catalog.authors",
+        "pk": 5,
+        "fields": {
+          "author": "Джон Дальтон"
+        }
+      },
+      {
+          "model": "catalog.sections",
+          "pk": 1,
+          "fields": {
+          "section": "Механика"
+          }
+      },
+      {
+        "model": "catalog.sections",
+        "pk": 2,
+        "fields": {
+        "section": "МКТ и Т/Д"
+        }
+    },
+    {
+        "model": "catalog.sections",
+        "pk": 3,
+        "fields": {
+        "section": "Электродинамика"
+        }
+    },
+    {
+        "model": "catalog.sections",
+        "pk": 4,
+        "fields": {
+        "section": "Общие"
+        }
+    },
+    {
+        "model": "catalog.laws",
+        "pk": 1,
+        "fields": {
+        "title": "Закон Ома для участка цепи",
+        "text": "Сила тока в участке цепи прямо пропорциональна ...",
+        "year": "1827",
+        "author_id": "1",
+        "section_id": "3"
+        }
+    },
+    {
+        "model": "catalog.laws",
+        "pk": 2,
+        "fields": {
+        "title": "1-й закон Ньютона",
+        "text": "Существуют такие системы отсчёта, в которых тела ...",
+        "year": "1687",
+        "author_id": "2",
+        "section_id": "1"
+        }
+    },
+    {
+        "model": "catalog.laws",
+        "pk": 3,
+        "fields": {
+        "title": "Закон Архимеда",
+        "text": "На тело, погружённое в жидкость или газ действует ...",
+        "year": "0",
+        "author_id": "3",
+        "section_id": "1"
+        }
+    },
+    {
+        "model": "catalog.laws",
+        "pk": 4,
+        "fields": {
+        "title": "Закон электромагнитной индукции",
+        "text": "ЭДС индукции в замкнутом контуре равна и противоположна ...",
+        "year": "1857",
+        "author_id": "4",
+        "section_id": "3"
+        }
+    },
+    {
+        "model": "catalog.laws",
+        "pk": 5,
+        "fields": {
+        "title": "Давление смеси газов",
+        "text": "Давление смеси газов равно сумме парциальных ...",
+        "year": "1801",
+        "author_id": "5",
+        "section_id": "2"
+        }
+    }
+]
