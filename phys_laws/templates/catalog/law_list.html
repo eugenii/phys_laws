@@ -10,11 +10,11 @@
             <div class="list-group">
                 {% for law in laws %}
                 {% if forloop.first %}
-                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-success">{{ law.title }}</a>
+                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-success">{{ law.title }} ({{ law.year }})</a>
                 {% elif forloop.last %}
-                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-info">{{ law.title }}</a>
+                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-info">{{ law.title }}  ({{ law.year }})</a>
                 {% else %}
-                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-light">{{ law.title }}</a>
+                  <a href="{% url 'catalog:law_detail' forloop.counter0 %}" class="list-group-item list-group-item-light">{{ law.title }}  ({{ law.year }})</a>
                 {% endif %}
                 {% endfor %}
             </div>

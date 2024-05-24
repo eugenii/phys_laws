@@ -1,11 +1,13 @@
 from django.shortcuts import render
+from catalog.models import Laws
 
 
 def law_list(request):
     template_name = 'catalog/law_list.html'
     title = 'список законов'
+    laws = Laws.objects.values('title', 'year')
     context = {
-        'laws': phys_laws_catalog,
+        'laws': laws,
         'title': title,
     }
     return render(request, template_name, context)
@@ -13,8 +15,10 @@ def law_list(request):
 
 def law_detail(request, pk):
     template_name = "catalog/law_detail.html"
+    law = Laws.objects.get(pk=pk+1)
     context = {
-        'law_detail': phys_laws_catalog[pk]
+        # 'law_detail': phys_laws_catalog[pk]  # старый вариант
+        'law': law,
     }
     return render(request, template_name, context)
 

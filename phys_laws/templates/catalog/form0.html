@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}form-0 (test){% endblock %}
+{% block content %}
+<form action="{% url 'forms:resp0' %}">
+  <p>
+  <label for='law_title'>Название:</label>
+  <input id='law_title' name='law_title'>
+  </p>
+  <p>
+  <label for='author'>Автор:</label>
+  <input id='author' name='author'>
+  <p>
+    <label for='year'>год:</label>
+    <input id='year' name='year'>
+  </p>
+  <input type='submit' value="send">
+</form>
+
+{% endblock %}

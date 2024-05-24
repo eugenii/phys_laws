@@ -5,5 +5,17 @@
     {% block content %}
       <h1>Здесь соберутся физические законы</h1>
       <p>и их открыватели...</p>
+      {% comment %}
+      {{ laws_list }}
+      {% endcomment %}
+      {% for law in laws_list %}
+        <ul>
+          <li>{{ law.title }}</li>
+          {% comment %}
+          <li>year: {{ law.year }} section: {{ law.section_id__section }}</li>
+          {% endcomment %}
+          <li>year: {{ law.year }} section: {{ law.section_id.section }}</li>
+        </ul>
+      {% endfor%}
     {% endblock %}
 

@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}{{ law_detail.title }}{% endblock %}
+{% block title %}{{ law.title }}{% endblock %}
 {% block content %}
 <div class="container py-5 col-6">
   <div class="container mt-3">
     <div class="card">
       <div class="card-header">
-        {{ law_detail.title}}
+        {{ law.title}}
         <br>
-        <small>{{ law_detail.section }}</small>
+        <small>{{ law.section }}</small>
       </div>
-      <div class="card-body">{{ law_detail.text }}</div>
+      <div class="card-body">{{ law.text }}</div>
       <div class="card-footer">
-        {{ law_detail.author }}<br> {{ law_detail.year }} <br>{{ law_detail.country }}
+        {{ law.author }}<br> {{ law.year }} <br>{{ law.country }}
       </div>
     </div>
   </div>

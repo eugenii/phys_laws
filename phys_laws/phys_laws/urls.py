@@ -20,7 +20,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
-    path('catalog', include('catalog.urls')),
+    path('catalog/', include('catalog.urls')),
+    path('forms/', include('forms.urls')),
 ]
 
 # Если проект запущен в режиме разработки...
