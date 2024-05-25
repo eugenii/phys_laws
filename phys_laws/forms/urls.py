@@ -8,5 +8,6 @@ app_name = 'forms'
 
 urlpatterns = [
     path('', views.form0, name='form0'),
+    path('author/', views.author, name='author'),
     path('<str:name>/', views.resp0, name='resp0'),
 ]

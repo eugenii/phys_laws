@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}form-0 (test){% endblock %}
 {% block content %}
-<h3>
-  <b>Year: <i>{{ text }}</i></b>
-</h3>
-
+  <form>
+    <table>
+      {{ form }}
+    </table>
+    <input type="submit" value="submit">
+  </form>
 
 {% endblock %}

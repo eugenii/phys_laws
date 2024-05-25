@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}form-0 (test){% endblock %}
 {% block content %}
-<form action="">
+<form action={% url 'forms:resp0' 'year' %}>
   <p>
   <label for='law_title'>Название:</label>
   <input id='law_title' name='law_title'>

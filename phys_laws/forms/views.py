@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from phys_laws.forms import AuthorForm
 # Create your views here.
 
 def form0(request):
@@ -12,6 +12,12 @@ def form0(request):
 def resp0(request, name):
     template_name = 'catalog/form_res.html'
     context = {
-        'text': name,
+        'text': request.GET.get('year'),
     }
+    return render(request, template_name, context)
+
+def author(request):
+    template_name = 'catalog/form_author.html'
+    form = AuthorForm()
+    context = {'form': form}
     return render(request, template_name, context)
