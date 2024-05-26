@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 {% block title %}form-0 (test){% endblock %}
 {% block content %}
-<form action={% url 'forms:resp0' 'year' %}>
-  <p>
-  <label for='law_title'>Название:</label>
-  <input id='law_title' name='law_title'>
-  </p>
-  <p>
-  <label for='author'>Автор:</label>
-  <input id='author' name='author'>
-  <p>
-    <label for='year'>год:</label>
-    <input id='year' name='year'>
-  </p>
-  <input type='submit' value="send">
-</form>
-
+  <form action={% url 'forms:resp0' 'year' %}>
+    <p>
+    <label for='law_title'>Название:</label>
+    <input id='law_title' name='law_title'>
+    </p>
+    <p>
+    <label for='author'>Автор:</label>
+    <input id='author' name='author'>
+    <p>
+      <label for='year'>год:</label>
+      <input id='year' name='year'>
+    </p>
+    <input type='submit' value="send">
+  </form>
 {% endblock %}
+
+{% comment %}
+<div class="card-col4">
+  <div class="card-header">
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="send" %}
+  </div>
+</div>
+{% endcomment %}
