@@ -2,6 +2,6 @@ from django import forms
 
 
 class AuthorForm(forms.Form):
-    name = forms.CharField(max_length=20)
-    country = forms.CharField(required=False)
-    birthday = forms.DateField()
+    name = forms.CharField(label='имя:', max_length=20)
+    country = forms.CharField(label='страна', required=False, help_text='Необязательное поле')
+    birthday = forms.DateField(label='год', help_text='только год')
