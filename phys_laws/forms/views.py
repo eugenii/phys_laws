@@ -22,10 +22,3 @@ def author(request):
     context = {'form': form}
     print(request.GET)
     return render(request, template_name, context)
-
-
-def law(request):
-    template_name = 'catalog/law_add.html'
-    form = 
-    context = {'form': form}
-    return render(request, template_name, context)

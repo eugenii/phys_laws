@@ -1,11 +1,12 @@
-from django.shortcuts import render
-from catalog.models import Laws
+from django.shortcuts import get_object_or_404, render
+from .models import Laws
+from .forms import LawForm
 
 
 def law_list(request):
     template_name = 'catalog/law_list.html'
     title = 'список законов'
-    laws = Laws.objects.values('title', 'year')
+    laws = Laws.objects.all()
     context = {
         'laws': laws,
         'title': title,
@@ -21,6 +22,30 @@ def law_detail(request, pk):
         'law': law,
     }
     return render(request, template_name, context)
+
+
+def law_add(request, pk=None):
+    # Добавим закон в базу
+    template_name = 'catalog/law_add.html'
+    if pk is not None:
+        # Получаем объект модели или выбрасываем 404 ошибку.
+        instance = get_object_or_404(Laws, pk=pk)
+    # Если в запросе не указан pk
+    # (если получен запрос к странице создания записи):
+    else:
+        # Связывать форму с объектом не нужно, установим значение None.
+        instance = None
+    # Передаём в форму либо данные из запроса, либо None. 
+    # В случае редактирования прикрепляем объект модели.
+    form = LawForm(request.POST or None, instance=instance)
+    context = {'form': form}
+    # Сохраняем данные, полученные из формы, и отправляем ответ:
+    if form.is_valid():
+        form.save()
+    
+    return render(request, template_name, context)
+
+
 
 
 phys_laws_catalog = [
