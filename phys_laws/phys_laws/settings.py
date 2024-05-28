@@ -59,6 +59,8 @@ ROOT_URLCONF = 'phys_laws.urls'
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

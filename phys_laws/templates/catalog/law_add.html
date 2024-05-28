@@ -2,9 +2,19 @@
 {% load django_bootstrap5 %}
 {% block title %}form-0 (test){% endblock %}
 {% block content %}
+{% with data=form.instance %}
+    {% if '/edit/' in request.path %}
+      <!-- Вместо form.instance подставляем data. -->
+      <h1>Редактировать запись {{ data.pk }}</h1>
+    {% elif "/delete/" in request.path %}
+      <h1>Удалить запись {{ data.pk }}</h1>
+    {% else %}
+      <h1>Создать запись</h1>
+    {% endif %}
+{% endwith %}
 <div class="card col-4">
   <div class="card-header">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       <!-- Добавьте тег csrf_token. Без него POST-запрос будет отклонён. -->
       {% csrf_token %}
     {% bootstrap_form form %}

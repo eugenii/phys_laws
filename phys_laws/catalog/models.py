@@ -37,6 +37,8 @@ class Laws(models.Model):
         verbose_name='раздел'
     )
 
+    formula = models.ImageField('формула', upload_to='formulas', blank=True)
+
     class Meta:
         verbose_name = 'закон'
         verbose_name_plural = 'Законы'

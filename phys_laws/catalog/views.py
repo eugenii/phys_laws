@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Laws
 from .forms import LawForm
 
@@ -37,7 +37,12 @@ def law_add(request, pk=None):
         instance = None
     # Передаём в форму либо данные из запроса, либо None. 
     # В случае редактирования прикрепляем объект модели.
-    form = LawForm(request.POST or None, instance=instance)
+    form = LawForm(
+        request.POST or None,
+        # Файлы, переданные в запросе, указываются отдельно.
+        files=request.FILES or None,
+        instance=instance
+    )
     context = {'form': form}
     # Сохраняем данные, полученные из формы, и отправляем ответ:
     if form.is_valid():
@@ -45,7 +50,21 @@ def law_add(request, pk=None):
     
     return render(request, template_name, context)
 
-
+def law_delete(request, pk):
+    # Получаем объект модели или выбрасываем 404 ошибку.
+    instance = get_object_or_404(Laws, pk=pk)
+    # В форму передаём только объект модели;
+    # передавать в форму параметры запроса не нужно.
+    form = LawForm(instance=instance)
+    context = {'form': form}
+    # Если был получен POST-запрос...
+    if request.method == 'POST':
+        # ...удаляем объект:
+        instance.delete()
+        # ...и переадресовываем пользователя на страницу со списком записей.
+        return redirect('catalog:law_list')
+    # Если был получен GET-запрос — отображаем форму.
+    return render(request, 'catalog/law_add.html', context)
 
 
 phys_laws_catalog = [
