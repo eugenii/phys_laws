@@ -13,7 +13,8 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\phys_laws\\manage.py"
+            "program": "${workspaceFolder}\\phys_laws\\manage.py",
+            "justMyCode":true
         }
     ]
 }

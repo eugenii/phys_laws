@@ -1,6 +1,15 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import ListView
 from .models import Laws
 from .forms import LawForm
+
+class LawsListView(ListView):
+    # Указываем модель, с которой работает CBV...
+    model = Laws
+    # ...сортировку, которая будет применена при выводе списка объектов:
+    ordering = 'id'
+    # ...и даже настройки пагинации:
+    paginate_by = 3
 
 
 def law_list(request):
